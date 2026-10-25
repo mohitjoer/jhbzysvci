@@ -136,6 +136,7 @@ async def health_check():
 
 
 @app.get("/api/decision-dashboard")
+@app.get("/decision-dashboard")
 async def get_decision_dashboard(
     delivery_date: str = Query(default="2026-01-14", description="YYYY-MM-DD or 'whole_month'"),
     cutoff_time: str = Query(default="09:20", description="HH:MM UK time on Day D-1, default 09:20")

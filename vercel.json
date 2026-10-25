@@ -1,10 +1,16 @@
 {
+  "version": 2,
   "buildCommand": "npm --prefix frontend run build",
   "outputDirectory": "frontend/dist",
+  "functions": {
+    "api/**/*.py": {
+      "includeFiles": "backend/**"
+    }
+  },
   "rewrites": [
     {
       "source": "/api/(.*)",
-      "destination": "https://wind-forecast-analysis.herokuapp.com/api/$1"
+      "destination": "/api/index.py"
     },
     {
       "source": "/(.*)",
@@ -12,4 +18,3 @@
     }
   ]
 }
-
