@@ -106,6 +106,15 @@ export interface DecisionDashboardResponse {
 }
 
 function getBackendUrl(path: string): string {
+  // Check for bound URL in runtime environment without triggering TypeScript missing global errors
+  const envObj = (globalThis as unknown as { process?: { env?: Record<string, string | undefined> } }).process?.env;
+  const boundUrl = envObj?.BACKEND_URL || '';
+
+  if (boundUrl) {
+    const base = boundUrl.endsWith('/') ? boundUrl.slice(0, -1) : boundUrl;
+    const cleanPath = path.startsWith('/') ? path : `/${path}`;
+    return `${base}${cleanPath}`;
+  }
   return path;
 }
 
