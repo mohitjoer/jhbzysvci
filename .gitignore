@@ -1,0 +1,29 @@
+# Node
+node_modules/
+frontend/node_modules/
+frontend/dist/
+dist/
+npm-debug.log*
+yarn-debug.log*
+pnpm-debug.log*
+
+# Python
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+.venv/
+backend/.venv/
+backend/__pycache__/
+backend/deps/
+
+# OS and IDE
+.DS_Store
+.idea/
+.vscode/
+*.swp
+*.swo
+
+# Environment
+.env
+.env.local
